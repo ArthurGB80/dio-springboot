@@ -1,0 +1,42 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "SpringPrimeirosPassosApplication",
+            "request": "launch",
+            "mainClass": "dio.springboot.SpringPrimeirosPassosApplication",
+            "projectName": "dio-spring-configuration-properties"
+        },
+        {
+            "type": "java",
+            "name": "SpringPrimeirosPassosApplication",
+            "request": "launch",
+            "mainClass": "dio.springboot.SpringPrimeirosPassosApplication",
+            "projectName": "dio-spring-properties-value"
+        },
+        {
+            "type": "java",
+            "name": "SpringPrimeirosPassosApplication",
+            "request": "launch",
+            "mainClass": "dio.springboot.SpringPrimeirosPassosApplication",
+            "projectName": "dio-spring-scopes-singleton-prototype"
+        },
+        {
+            "type": "java",
+            "name": "SpringPrimeirosPassosApplication",
+            "request": "launch",
+            "mainClass": "dio.springboot.SpringPrimeirosPassosApplication",
+            "projectName": "dio-spring-ioc-di-beans-autowired"
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-SpringPrimeirosPassosApplication<dio-spring-primeiros-passos>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "dio.springboot.SpringPrimeirosPassosApplication",
+            "projectName": "dio-spring-primeiros-passos",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}

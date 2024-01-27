@@ -18,6 +18,7 @@ public class SpringPrimeirosPassosApplication {
 			sistema.enviarConfirmacaoCadastro();
 			sistema.enviarMensagemBoasVindas();
 			sistema.enviarConfirmacaoCadastro();
+
 		};
 	}
 

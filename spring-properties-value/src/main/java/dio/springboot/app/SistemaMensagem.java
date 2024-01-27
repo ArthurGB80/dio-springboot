@@ -1,28 +1,36 @@
 package dio.springboot.app;
 
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
 @Component
 public class SistemaMensagem implements CommandLineRunner {
+	private static final Logger logger = LoggerFactory.getLogger(SistemaMensagem.class);
+
 	@Value("${name:NoReply-DIO}")
 	private String nome;
+
 	@Value("${email}")
 	private String email;
-	@Value("${telefones}")
-	private List<Long> telefones =
-			new ArrayList<>(Arrays.asList(new Long[]{11956781254L}));
+
+	@Value("#{'${telefones:}'.split(',')}")
+	private List<Long> telefones;
 
 	@Override
 	public void run(String... args) throws Exception {
-		System.out.println("Mensagem enviada por: " + nome
-				+ "\nE-mail:" + email
-				+ "\nCom telefones para contato: " + telefones);
-		System.out.println("Seu cadastro foi aprovado");
+		if (telefones == null || telefones.isEmpty()) {
+			logger.error("No telephone numbers were provided.");
+			return;
+		}
+
+		logger.info("Mensagem enviada por: {}", nome);
+		logger.info("E-mail: {}", email);
+		logger.info("Com telefones para contato: {}", telefones);
+		logger.info("Seu cadastro foi aprovado");
 	}
 }

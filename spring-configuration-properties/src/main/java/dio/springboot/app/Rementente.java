@@ -1,10 +1,10 @@
 package dio.springboot.app;
 
+import java.util.List;
+
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.stereotype.Component;
 
-import java.util.List;
 @Configuration
 @ConfigurationProperties(prefix = "remetente")
 public class Rementente {

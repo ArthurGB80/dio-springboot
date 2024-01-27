@@ -1,0 +1,22 @@
+{"properties": [
+  {
+    "name": "nome",
+    "type": "java.lang.String",
+    "description": "A description for 'nome'"
+  },
+  {
+    "name": "email",
+    "type": "java.lang.String",
+    "description": "A description for 'email'"
+  },
+  {
+    "name": "email",
+    "type": "java.lang.String",
+    "description": "A description for 'email'"
+  },
+  {
+    "name": "telefones",
+    "type": "java.lang.String",
+    "description": "A description for 'telefones'"
+  }
+]}
