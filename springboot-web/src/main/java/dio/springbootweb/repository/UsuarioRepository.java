@@ -21,7 +21,7 @@ public class UsuarioRepository {
         System.out.println(usuario);
     }
     public void remove(Integer id){
-        System.out.println(String.format("DELETE/id - Recebendo o id: %d para excluir um usuário", id));
+        System.out.println("DELETE/id - Recebendo o id: %d para excluir um usuário".formatted(id));
         System.out.println(id);
     }
     public List<Usuario> listAll(){
@@ -31,7 +31,7 @@ public class UsuarioRepository {
         return usuarios;
     }
     public Usuario finById(Integer id){
-        System.out.println(String.format("GET/id - Recebendo o id: %d para localizar um usuário", id));
+        System.out.println("GET/id - Recebendo o id: %d para localizar um usuário".formatted(id));
         return new Usuario("gleyson","password");
     }
 

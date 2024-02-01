@@ -1,7 +1,8 @@
 package dio.aula.handler;
 
+import java.lang.reflect.UndeclaredThrowableException;
+
 import javax.annotation.Resource;
-import org.springframework.cglib.proxy.UndeclaredThrowableException;
 import org.springframework.context.MessageSource;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;

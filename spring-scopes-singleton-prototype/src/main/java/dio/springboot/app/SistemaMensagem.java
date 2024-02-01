@@ -1,21 +1,29 @@
 package dio.springboot.app;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
 @Component
 public class SistemaMensagem {
-    @Autowired
-    private Remetente noreply;
-    @Autowired
-    private Remetente techTeam;
-   public void enviarConfirmacaoCadastro(){
-       System.out.println(noreply);
-       System.out.println("Seu cadastro foi aprovado");
-   }
-    public void enviarMensagemBoasVindas(){
+    private final Remetente noreply;
+    private final Remetente techTeam;
+    private final Logger logger;
+
+    public SistemaMensagem(Remetente noreply, Remetente techTeam) {
+        this.noreply = noreply;
+        this.techTeam = techTeam;
+        this.logger = LoggerFactory.getLogger(SistemaMensagem.class);
+    }
+
+    public void enviarConfirmacaoCadastro() {
+        logger.info(noreply.toString());
+        logger.info("Seu cadastro foi aprovado");
+    }
+
+    public void enviarMensagemBoasVindas() {
         techTeam.setEmail("tech@dio.com.br");
-        System.out.println(techTeam);
-        System.out.println("Bem-vindo à Tech Elite");
+        logger.info(techTeam.toString());
+        logger.info("Bem-vindo à Tech Elite");
     }
 }

@@ -25,11 +25,11 @@ public class UsuarioController {
         return repository.listAll();
     }
     @GetMapping("/usuario/{id}")
-    public Usuario getOne(@PathVariable("id") Integer id){
+    public Usuario getOne(@PathVariable Integer id){
         return repository.finById(id);
     }
     @DeleteMapping("/usuarios/{id}")
-    public void delete(@PathVariable("id") Integer id){
+    public void delete(@PathVariable Integer id){
         repository.remove(id);
     }
 }

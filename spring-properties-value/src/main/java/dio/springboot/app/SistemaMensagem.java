@@ -12,7 +12,7 @@ import org.springframework.stereotype.Component;
 public class SistemaMensagem implements CommandLineRunner {
 	private static final Logger logger = LoggerFactory.getLogger(SistemaMensagem.class);
 
-	@Value("${name:NoReply-DIO}")
+	@Value("${nome:NoReply-DIO}")
 	private String nome;
 
 	@Value("${email}")
@@ -24,7 +24,7 @@ public class SistemaMensagem implements CommandLineRunner {
 	@Override
 	public void run(String... args) throws Exception {
 		if (telefones == null || telefones.isEmpty()) {
-			logger.error("No telephone numbers were provided.");
+			logger.error("Nenhum telefone foi informado.");
 			return;
 		}
 

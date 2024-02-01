@@ -2,6 +2,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "AulaSpringDataJpaApplication",
+            "request": "launch",
+            "mainClass": "dio.aula.AulaSpringDataJpaApplication",
+            "projectName": "dio-access-control"
+        },
+        {
+            "type": "java",
             "name": "SpringPrimeirosPassosApplication",
             "request": "launch",
             "mainClass": "dio.springboot.SpringPrimeirosPassosApplication",

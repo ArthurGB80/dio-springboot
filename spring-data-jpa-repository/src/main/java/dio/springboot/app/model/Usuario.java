@@ -13,15 +13,15 @@ public class Usuario {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
-	
+
 	@Column(name = "nome_completo", length = 50, nullable = false)
 	private String nomeCompleto;
-	
+
 	private String email;
-	
+
 	@Column(length = 20, nullable = false)
 	private String login;
-	
+
 	@Column(length = 100, nullable = false)
 	private String senha;
 
@@ -60,6 +60,5 @@ public class Usuario {
 	public Integer getId() {
 		return id;
 	}
-	
-	
+
 }

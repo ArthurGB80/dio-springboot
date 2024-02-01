@@ -17,40 +17,40 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 @Configuration
 @EnableSwagger2
 public class SwaggerConfig {
-    private Contact contato() {
-        return new Contact(
-                "Seu nome",
-                "http://www.seusite.com.br",
-                "voce@seusite.com.br");
+    private static final String CONTACT_NAME = "Your Name";
+    private static final String CONTACT_URL = "http://www.yourwebsite.com";
+    private static final String CONTACT_EMAIL = "you@yourwebsite.com";
+    private static final String API_TITLE = "Your API Title";
+    private static final String API_DESCRIPTION = "Description of your API";
+    private static final String API_VERSION = "1.0";
+    private static final String TERMS_OF_SERVICE_URL = "Terms of Service URL";
+    private static final String LICENSE_NAME = "Your License Name";
+    private static final String LICENSE_URL = "http://www.yourlicenseurl.com";
+
+    private static Contact createContactInformation() {
+        return new Contact(CONTACT_NAME, CONTACT_URL, CONTACT_EMAIL);
     }
-    private ApiInfoBuilder informacoesApi() {
 
-        ApiInfoBuilder apiInfoBuilder = new ApiInfoBuilder();
-
-        apiInfoBuilder.title("Title - Rest API");
-        apiInfoBuilder.description("API exemplo de uso de Springboot REST API");
-        apiInfoBuilder.version("1.0");
-        apiInfoBuilder.termsOfServiceUrl("Termo de uso: Open Source");
-        apiInfoBuilder.license("Licença - Sua Empresa");
-        apiInfoBuilder.licenseUrl("http://www.seusite.com.br");
-        apiInfoBuilder.contact(this.contato());
-
-        return apiInfoBuilder;
-
+    private static ApiInfoBuilder createApiInformation() {
+        return new ApiInfoBuilder()
+                .title(API_TITLE)
+                .description(API_DESCRIPTION)
+                .version(API_VERSION)
+                .termsOfServiceUrl(TERMS_OF_SERVICE_URL)
+                .license(LICENSE_NAME)
+                .licenseUrl(LICENSE_URL)
+                .contact(createContactInformation());
     }
+
     @Bean
-    public Docket detalheApi() {
-        Docket docket = new Docket(DocumentationType.SWAGGER_2);
-
-        docket
+    public Docket api() {
+        return new Docket(DocumentationType.SWAGGER_2)
                 .select()
                 .apis(RequestHandlerSelectors.basePackage("dio.springbootweb.controller"))
                 .paths(PathSelectors.any())
                 .build()
-                .apiInfo(this.informacoesApi().build())
-                .consumes(new HashSet<String>(Arrays.asList("application/json")))
-                .produces(new HashSet<String>(Arrays.asList("application/json")));
-
-        return docket;
+                .apiInfo(createApiInformation().build())
+                .consumes(new HashSet<>(Arrays.asList("application/json")))
+                .produces(new HashSet<>(Arrays.asList("application/json")));
     }
 }

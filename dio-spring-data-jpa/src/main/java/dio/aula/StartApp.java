@@ -1,33 +1,52 @@
 package dio.aula;
 
-import dio.aula.model.User;
-import dio.aula.repository.UserRepository;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
-import java.util.List;
+import dio.aula.model.User;
+import dio.aula.repository.UserRepository;
 
 @Component
 public class StartApp implements CommandLineRunner {
     @Autowired
     private UserRepository repository;
+
     @Override
     public void run(String... args) throws Exception {
-        List<User> users = repository.findByNameContaining("GLEYSON");
-        for(User u: users){
+        printUsersWithNameContaining("GLEYSON");
+        insertUser();
+    }
+
+    private void printUsersWithNameContaining(String name) {
+        List<User> users = repository.findByNameContaining(name);
+        if (!users.isEmpty()) {
+            printUsers(users);
+        }
+    }
+
+    private void printUsers(List<User> users) {
+        for (User u : users) {
             System.out.println(u);
         }
     }
-    private void insertUser(){
+
+    private void insertUser() {
         User user = new User();
         user.setName("GABRIEL NUNES");
         user.setUsername("gabriel");
         user.setPassword("santos");
         repository.save(user);
 
-        for(User u: repository.findAll()){
-            System.out.println(u);
+        printAllUsers();
+    }
+
+    private void printAllUsers() {
+        List<User> users = repository.findAll();
+        if (!users.isEmpty()) {
+            printUsers(users);
         }
     }
 }
