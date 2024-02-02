@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 import java.util.Date;
+
 @RestController
 public class LoginController {
     @Autowired
@@ -23,14 +24,14 @@ public class LoginController {
     private UserRepository repository;
 
     @PostMapping("/login")
-    public Sessao logar(@RequestBody Login login){
+    public Sessao logar(@RequestBody Login login) {
         User user = repository.findByUsername(login.getUsername());
-        if(user!=null) {
-            boolean passwordOk =  encoder.matches(login.getPassword(), user.getPassword());
+        if (user != null) {
+            boolean passwordOk = encoder.matches(login.getPassword(), user.getPassword());
             if (!passwordOk) {
                 throw new RuntimeException("Senha inválida para o login: " + login.getUsername());
             }
-            //Estamos enviando um objeto Sessão para retornar mais informações do usuário
+            // Estamos enviando um objeto Sessão para retornar mais informações do usuário
             Sessao sessao = new Sessao();
             sessao.setLogin(user.getUsername());
 
@@ -40,7 +41,7 @@ public class LoginController {
             jwtObject.setRoles(user.getRoles());
             sessao.setToken(JWTCreator.create(SecurityConfig.PREFIX, SecurityConfig.KEY, jwtObject));
             return sessao;
-        }else {
+        } else {
             throw new RuntimeException("Erro ao tentar fazer login");
         }
     }
