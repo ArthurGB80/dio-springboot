@@ -1,4 +1,5 @@
 package dio.spring.security.init;
+
 import dio.spring.security.model.User;
 import dio.spring.security.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -2,6 +2,20 @@
     "configurations": [
         {
             "type": "java",
+            "name": "DioSpringSecurityApplication",
+            "request": "launch",
+            "mainClass": "dio.spring.security.DioSpringSecurityApplication",
+            "projectName": ""
+        },
+        {
+            "type": "java",
+            "name": "DioSpringSecurityJwtApplication",
+            "request": "launch",
+            "mainClass": "dio.dio.spring.security.jwt.DioSpringSecurityJwtApplication",
+            "projectName": "dio-dio-spring-security-jwt"
+        },
+        {
+            "type": "java",
             "name": "AulaSpringDataJpaApplication",
             "request": "launch",
             "mainClass": "dio.aula.AulaSpringDataJpaApplication",
